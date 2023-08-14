@@ -1,0 +1,568 @@
+﻿@model List<Course>
+
+@{
+    Layout = "~/Views/Shared/Vitrin/_VitrinLayout.cshtml";
+}
+
+<!-- main-slider -->
+<section class="w3l-main-slider" id="home">
+    <div class="companies20-content">
+        <div class="owl-one owl-carousel owl-theme">
+            <div class="item">
+                <li>
+                    <div class="slider-info banner-view bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg">
+                                    <h5>Tüm Popüler Kurslarda %50 İndirim</h5>
+                                    <p class="mt-4 pr-lg-4">Başarıya giden yolculuğunuza ilk adımı bizde atın</p>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#">
+                                        Başlamaya Hazır mısın
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="item">
+                <li>
+                    <div class="slider-info  banner-view banner-top1 bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg">
+                                    <h5>Daha Kısa Sürede Öğrenin ve Kendinizi Geliştirin </h5>
+                                    <p class="mt-4 pr-lg-4">Kişisel gelişim kurslarımız çok etkili</p>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#">
+                                        Başlamaya Hazır mısın
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="item">
+                <li>
+                    <div class="slider-info banner-view banner-top2 bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg">
+                                    <h5>Daha Başarılı Olmak İçin Daha Üretken Olun</h5>
+                                    <p class="mt-4 pr-lg-4">Vakit kaybetmeyin, verimli kurslarımıza göz atın </p>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#">
+                                        Başlamaya Hazır mısın
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="item">
+                <li>
+                    <div class="slider-info banner-view banner-top3 bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg">
+                                    <h5>En İyi Çevrimiçi Kurslarla Becerilerinizi Geliştirin </h5>
+                                    <p class="mt-4 pr-lg-4">Başarı, mücadeleyle gelen zaferdir.</p>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#">
+                                        Başlamaya Hazır mısın
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </div>
+
+    <div class="waveWrapper waveAnimation">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
+        </svg>
+    </div>
+</section>
+<!-- /main-slider -->
+<section class="w3l-courses">
+    <div class="blog pb-5" id="courses">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h5 class="title-small text-center mb-1">ÖĞRENME KURSLARIMIZA KATILIN</h5>
+            <h3 class="title-big text-center mb-sm-5 mb-4">Son Eklenen Kurslar</h3>
+            <div class="row">
+
+                @foreach (var i in Model)
+                {
+
+                    <div class="col-lg-4 col-md-6 item mb-4">
+                        <div class="card">
+                            <div class="card-header p-0 position-relative">
+                                <a href="#course-single" class="zoom d-block">
+                                    <img class="card-img-bottom d-block" style="height:200px;" src="@i.CourseImgUrl"
+                                         alt="Card image cap">
+                                </a>
+                                <div class="post-pos">
+                                    <a href="#reciepe" class="receipe blue">Beginner</a>
+                                </div>
+                            </div>
+                            <div class="card-body course-details">
+                                <div class="price-review d-flex justify-content-between mb-1align-items-center">
+                                    <p>@i.CoursePrice ₺</p>
+                                    <ul class="rating-star">
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star-o"></span></li>
+                                    </ul>
+                                </div>
+                                <a href="#course-single" class="course-desc">
+                                    @i.CourseName
+                                </a>
+                               
+
+                                
+                                <div class="author align-items-center mt-4">
+                                    <img src="@i.Teacher.TeacherImageUrl" alt="" class="img-fluid rounded-circle">
+                                    <ul class="blog-meta">
+
+                                        <li>
+                                            <span class="meta-value mx-1"></span>Hazırlayan, <a href="#author"></a>
+                                        </li>
+                                        <li>
+                                            <span class="meta-value mx-1"></span> <a href="#author">@i.Teacher.TeacherName</a>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-info form-control">İncele</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+
+               
+               
+            </div>
+            <div class="mt-5 text-more">
+                <p class="pt-md-3 sample text-center">
+                    Uygun kurslar hakkında bildirim almak için kişisel tercih ayarlarınızı kontrol edin 
+                    <a href="/VitrinCourse/Index/">Tüm Kursları Görüntüle <span class="pl-2 fa fa-long-arrow-right"></span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="w3l-homeblock3 py-5">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <h5 class="title-small text-center mb-1"></h5>
+        <h3 class="title-big text-center mb-sm-5 mb-4"> <span>Son Haberler</span></h3>
+        <div class="row top-pics">
+            <div class="col-md-6">
+                <div class="top-pic1">
+                    <div class="card-body blog-details">
+                        <a href="#blog-single" class="blog-desc">
+                            Eğitim becerilerinizi geliştirin ve ayrıca en iyi çevrimiçi kurslarla deneyim kazanın
+                        </a>
+                        <div class="author align-items-center">
+                            <img src="~/Templates/Vitrin/assets/images/team1.jpg" alt="" class="img-fluid rounded-circle" />
+                            <ul class="blog-meta">
+                                <li>
+                                    <a href="#author">Murat</a> </a>
+                                </li>
+                                <li class="meta-item blog-lesson">
+                                    <span class="meta-value"> Kasım 19, 2023 </span>. <span class="meta-value ml-2">
+                                        <span class="fa fa-clock-o"></span> 1 Dakika
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-md-0 mt-4">
+                <div class="top-pic2">
+                    <div class="card-body blog-details">
+                        <a href="#blog-single" class="blog-desc">
+                            Daha Başarılı olmak için daha üretken olun. İlk yolculuğunuzu yapın
+                        <div class="author align-items-center">
+                            <img src="~/Templates/Vitrin/assets/images/team2.jpg" alt="" class="img-fluid rounded-circle" />
+                            <ul class="blog-meta">
+                                <li>
+                                    <a href="#author">Nurgül</a> </a>
+                                </li>
+                                <li class="meta-item blog-lesson">
+                                    <span class="meta-value"> Temmuz 19, 2023 </span>. <span class="meta-value ml-2">
+                                        <span class="fa fa-clock-o"></span> 1 dakika
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="top-pic3">
+                        <div class="card-body blog-details">
+                            <a href="#blog-single" class="blog-desc">
+                            Kişisel gelişim kurslarımız daha etkilidir. Çevrimiçi öğrenmeye başlayın
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="~/Templates/Vitrin/assets/images/team3.jpg" alt="" class="img-fluid rounded-circle" />
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#author">Selvi</a> </a>
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Haziran 19, 2023 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-md-5 mt-4 text-more text-center">
+            <a href="blog.html">Tüm Gönderileri Görüntüle <span class="pl-2 fa fa-long-arrow-right"></span></a>
+        </div>
+    </div>
+</div>
+<!-- middle -->
+<div class="middle py-5">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="welcome-left text-center py-lg-4">
+            <h5 class="title-small mb-1">ÇEVRİMİÇİ ÖĞRENMEYE BAŞLAYIN</h5>
+            <h3 class="title-big">En iyi çevrimiçi kurslarla becerilerinizi geliştirin</h3>
+            <a href="#" class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2">Şimdi Başla</a>
+            <a href="/VitrinContact/Index/" class="btn btn-style btn-primary mt-sm-5 mt-4">Bize Ulaşın</a>
+        </div>
+    </div>
+</div>
+<!-- //middle -->
+<section class="w3l-team py-5" id="team">
+    <div class="call-w3 py-lg-5 py-md-4">
+        <div class="container">
+            <div class="row main-cont-wthree-2">
+                <div class="col-lg-5 feature-grid-left">
+                    <h5 class="title-small mb-1">DENEYİMLİ PROFESYONELLER</h5>
+                    <h3 class="title-big mb-4">Öğretmenlerimizle tanışın</h3>
+                    <p class="text-para" style="text-align:justify">
+                        Deneyimli profesyonellerden oluşan öğretmen kadromuzla tanışın! Uzmanlık alanlarında zengin bilgi birikimi ve öğretme tutkusuyla dolu olan öğretmenlerimiz, öğrencilerimizin potansiyelini maksimum seviyede ortaya çıkarmak için burada. Eğitim sürecinde samimi bir ortamda öğrencilere rehberlik ederken, onların ilgi alanlarına ve öğrenme stillerine özel bir yaklaşım benimsiyoruz. Her öğrencinin eşsiz olduğunu biliyor ve bireysel ihtiyaçlarını anlamak için özenle çalışıyoruz. Öğrencilerimizin başarıları, deneyimli profesyonel öğretmenlerimizin bilgi birikimi ve öğretme tutkusu sayesinde ilerliyor. Siz de deneyimli ve yetenekli öğretmenlerimizle eğitim yolculuğuna çıkmak için hemen katılın!
+                    </p>
+                    <p class="mt-3">
+                       
+                    </p>
+                    <a href="#url" class="btn btn-primary btn-style mt-md-5 mt-4">Daha Fazlası</a>
+                </div>
+                <div class="col-lg-7 feature-grid-right mt-lg-0 mt-5">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="box16">
+                                <a href="#url"><img src="~/Templates/Vitrin/assets/images/team1.jpg" alt="" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Murat</a></h3>
+                                    <span class="post">Müdür</span>
+                                    <ul class="social">
+                                        <li>
+                                            <a href="#" class="facebook">
+                                                <span class="fa fa-facebook-f"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="twitter">
+                                                <span class="fa fa-twitter"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mt-sm-0 mt-3">
+                            <div class="box16">
+                                <a href="#url"><img src="~/Templates/Vitrin/assets/images/team2.jpg" alt="" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Buğra</a></h3>
+                                    <span class="post">Genel Müdür</span>
+                                    <ul class="social">
+                                        <li>
+                                            <a href="#" class="facebook">
+                                                <span class="fa fa-facebook-f"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="twitter">
+                                                <span class="fa fa-twitter"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mt-lg-4 mt-3">
+                            <div class="box16">
+                                <a href="#url"><img src="~/Templates/Vitrin/assets/images/team3.jpg" alt="" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Nurgül</a></h3>
+                                    <span class="post">Eğitmen</a></span>
+                                    <ul class="social">
+                                        <li>
+                                            <a href="#" class="facebook">
+                                                <span class="fa fa-facebook-f"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="twitter">
+                                                <span class="fa fa-twitter"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mt-lg-4 mt-3">
+                            <div class="box16">
+                                <a href="#url"><img src="~/Templates/Vitrin/assets/images/team4.jpg" alt="" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Selvi</a></h3>
+                                    <span class="post">Eğitmen</a></span>
+                                    <ul class="social">
+                                        <li>
+                                            <a href="#" class="facebook">
+                                                <span class="fa fa-facebook-f"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="twitter">
+                                                <span class="fa fa-twitter"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- testimonials -->
+<section class="w3l-testimonials" id="clients">
+    <!-- /grids -->
+    <div class="cusrtomer-layout py-5">
+        <div class="container py-lg-4 py-md-3 pb-lg-0">
+
+            <h5 class="title-small text-center mb-1">Yorumlar</h5>
+            <h3 class="title-big text-center mb-sm-5 mb-4">Mutlu Öğrenciler ve Geri Bildirimler</h3>
+            <!-- /grids -->
+            <div class="testimonial-width">
+                <div id="owl-demo1" class="owl-two owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team1.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Buğra</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team2.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Nurgül</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team3.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Selvi</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team4.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Melike</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team2.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Fatma</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team3.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>İlayda</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team2.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Ayşe</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonial">
+                                <blockquote>
+                                    <q>
+                                        Lorem ipsum dolor sit amet elit. Velit beatae
+                                        laudantium
+                                        voluptate rem ullam dolore nisi voluptatibus esse quasi, doloribus tempora.
+                                        Dolores molestias adipisci dolo amet!.
+                                    </q>
+                                </blockquote>
+                                <div class="testi-des">
+                                    <div class="test-img">
+                                        <img src="~/Templates/Vitrin/assets/images/team3.jpg" class="img-fluid"
+                                             alt="client-img">
+                                    </div>
+                                    <div class="peopl align-self">
+                                        <h3>Erva</h3>
+                                        <p class="indentity">Öğrenci</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /grids -->
+    </div>
+    <!-- //grids -->
+</section>
+<!-- //testimonials -->
